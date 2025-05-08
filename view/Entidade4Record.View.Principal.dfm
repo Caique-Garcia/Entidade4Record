@@ -23,11 +23,10 @@ object FormPrincipal: TFormPrincipal
     Top = 24
     Width = 627
     Height = 512
-    ActivePage = Resultado
+    ActivePage = Conexao
     TabOrder = 0
     object Conexao: TTabSheet
       Caption = 'Conex'#227'o'
-      ExplicitHeight = 328
       object PanelContainer: TPanel
         Left = 0
         Top = 0
@@ -37,7 +36,6 @@ object FormPrincipal: TFormPrincipal
         BevelOuter = bvNone
         ShowCaption = False
         TabOrder = 0
-        ExplicitHeight = 328
         object PanelOpc: TPanel
           Left = 0
           Top = 0
@@ -47,7 +45,6 @@ object FormPrincipal: TFormPrincipal
           BevelOuter = bvNone
           ShowCaption = False
           TabOrder = 0
-          ExplicitHeight = 328
           object Label1: TLabel
             AlignWithMargins = True
             Left = 3
@@ -79,7 +76,6 @@ object FormPrincipal: TFormPrincipal
             ShowHint = True
             TabOrder = 0
             OnClick = BtnConectarClick
-            ExplicitTop = 35
           end
           object btnSair: TButton
             AlignWithMargins = True
@@ -99,7 +95,6 @@ object FormPrincipal: TFormPrincipal
             ShowHint = True
             TabOrder = 1
             OnClick = btnSairClick
-            ExplicitTop = 282
           end
           object BtnStart: TButton
             AlignWithMargins = True
@@ -119,7 +114,6 @@ object FormPrincipal: TFormPrincipal
             ShowHint = True
             TabOrder = 2
             OnClick = BtnStartClick
-            ExplicitTop = 86
           end
         end
         object PanelCorpo: TPanel
@@ -131,7 +125,6 @@ object FormPrincipal: TFormPrincipal
           BevelOuter = bvNone
           ShowCaption = False
           TabOrder = 1
-          ExplicitHeight = 328
           object PanelDados: TPanel
             Left = 0
             Top = 0
@@ -188,7 +181,6 @@ object FormPrincipal: TFormPrincipal
               Align = alTop
               Alignment = taCenter
               Caption = 'Configura'#231#227'o Banco'
-              ExplicitTop = 15
               ExplicitWidth = 117
             end
             object Label9: TLabel
@@ -246,7 +238,6 @@ object FormPrincipal: TFormPrincipal
             BevelOuter = bvNone
             ShowCaption = False
             TabOrder = 1
-            ExplicitHeight = 99
             object LabelStatusBanco: TLabel
               AlignWithMargins = True
               Left = 3
@@ -279,7 +270,6 @@ object FormPrincipal: TFormPrincipal
       Font.Style = []
       ImageIndex = 1
       ParentFont = False
-      ExplicitHeight = 328
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -289,7 +279,6 @@ object FormPrincipal: TFormPrincipal
         BevelOuter = bvNone
         ShowCaption = False
         TabOrder = 0
-        ExplicitHeight = 328
         object Label7: TLabel
           AlignWithMargins = True
           Left = 3
@@ -339,7 +328,6 @@ object FormPrincipal: TFormPrincipal
           ShowHint = True
           TabOrder = 1
           OnClick = btnSairClick
-          ExplicitTop = 282
         end
         object BtnVoltar: TButton
           AlignWithMargins = True
@@ -370,7 +358,6 @@ object FormPrincipal: TFormPrincipal
         BevelOuter = bvNone
         ShowCaption = False
         TabOrder = 1
-        ExplicitHeight = 328
         object Label8: TLabel
           AlignWithMargins = True
           Left = 3
@@ -411,7 +398,6 @@ object FormPrincipal: TFormPrincipal
           Highlighter = SynDWSSyn1
           ReadOnly = True
           FontSmoothing = fsmNone
-          ExplicitHeight = 293
         end
       end
     end
@@ -439,7 +425,6 @@ object FormPrincipal: TFormPrincipal
       Caption = 
         'Transforme uma tabela do banco de dados em Record criado em Delp' +
         'hi'
-      ExplicitLeft = 3
       ExplicitWidth = 427
     end
   end

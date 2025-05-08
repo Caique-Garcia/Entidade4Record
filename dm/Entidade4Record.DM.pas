@@ -40,10 +40,12 @@ type
     Query: TFDQuery;
   private
 
+
     { Private declarations }
   public
     function Conectar(const DB: TBanco): Boolean;
     function GerarRecordDaTabela(const Tabela: string): TStringList;
+    function GerarClasseDaTabela(const NomeTabela, NomeClasse: string): TStringList;
   end;
 
 var
@@ -73,6 +75,69 @@ begin
      raise Exception.Create(e.Message);
   end;
 
+end;
+
+function TDM.GerarClasseDaTabela(const NomeTabela, NomeClasse: string): TStringList;
+var
+  Qry: TFDQuery;
+  i: Integer;
+  CampoNome, CampoTipo: string;
+begin
+  Result := TStringList.Create;
+  Qry    := TFDQuery.Create(nil);
+  try
+    Qry.Connection := Conexao;
+    Qry.SQL.Text := Format('SELECT * FROM %s LIMIT 1', [NomeTabela]);
+    Qry.Open;
+
+    Result.Add('type');
+    Result.Add('  ' + NomeClasse + ' = class');
+    Result.Add('  private');
+
+    // Atributos privados
+    for i := 0 to Qry.FieldCount - 1 do
+    begin
+      CampoNome := Qry.Fields[i].FieldName;
+
+      if Qry.Fields[i] is TIntegerField then
+        CampoTipo := 'Integer'
+      else if Qry.Fields[i] is TStringField then
+        CampoTipo := 'string'
+      else if Qry.Fields[i] is TDateTimeField then
+        CampoTipo := 'TDateTime'
+      else if Qry.Fields[i] is TFloatField then
+        CampoTipo := 'Double'
+      else
+        CampoTipo := 'Variant';
+
+      Result.Add(Format('    F%s: %s;', [CampoNome, CampoTipo]));
+    end;
+
+    Result.Add('  public');
+
+    // Propriedades públicas
+    for i := 0 to Qry.FieldCount - 1 do
+    begin
+      CampoNome := Qry.Fields[i].FieldName;
+
+      if Qry.Fields[i] is TIntegerField then
+        CampoTipo := 'Integer'
+      else if Qry.Fields[i] is TStringField then
+        CampoTipo := 'string'
+      else if Qry.Fields[i] is TDateTimeField then
+        CampoTipo := 'TDateTime'
+      else if Qry.Fields[i] is TFloatField then
+        CampoTipo := 'Double'
+      else
+        CampoTipo := 'Variant';
+
+      Result.Add(Format('    property %s: %s read F%s write F%s;', [CampoNome, CampoTipo, CampoNome, CampoNome]));
+    end;
+
+    Result.Add('  end;');
+  finally
+    Qry.Free;
+  end;
 end;
 
 function TDM.GerarRecordDaTabela(const Tabela: string): TStringList;
