@@ -55,6 +55,9 @@ type
     SynDWSSyn1: TSynDWSSyn;
     PanelHeader: TPanel;
     Label10: TLabel;
+    GroupBox1: TGroupBox;
+    RadioButton_classe: TRadioButton;
+    RadioButton_Record: TRadioButton;
     procedure BtnConectarClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

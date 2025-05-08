@@ -115,6 +115,32 @@ object FormPrincipal: TFormPrincipal
             TabOrder = 2
             OnClick = BtnStartClick
           end
+          object GroupBox1: TGroupBox
+            Left = 11
+            Top = 152
+            Width = 160
+            Height = 93
+            Caption = ' Tipo '
+            TabOrder = 3
+            object RadioButton_classe: TRadioButton
+              Left = 16
+              Top = 29
+              Width = 113
+              Height = 17
+              Caption = 'Classe'
+              TabOrder = 0
+            end
+            object RadioButton_Record: TRadioButton
+              Left = 16
+              Top = 54
+              Width = 113
+              Height = 17
+              Caption = 'Record'
+              Checked = True
+              TabOrder = 1
+              TabStop = True
+            end
+          end
         end
         object PanelCorpo: TPanel
           Left = 177
