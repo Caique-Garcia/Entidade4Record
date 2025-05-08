@@ -135,6 +135,7 @@ end;
 
 procedure TFormPrincipal.FormCreate(Sender: TObject);
 begin
+    //Setando Page Principal
     PageControl.TabIndex := 0;
 end;
 
