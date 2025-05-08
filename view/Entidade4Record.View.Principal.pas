@@ -15,7 +15,11 @@ uses
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
-  Entidade4Record.DM, SynEdit, SynMemo, SynEditHighlighter, SynHighlighterDWS;
+  Entidade4Record.DM,
+  SynEdit,
+  SynMemo,
+  SynEditHighlighter,
+  SynHighlighterDWS;
 
 type
   TFormPrincipal = class(TForm)
@@ -103,6 +107,7 @@ end;
 procedure TFormPrincipal.BtnStartClick(Sender: TObject);
 var
    Code: TStringList;
+   NomeClasse: String;
 begin
     Memo.Lines.Clear;
     if EditTabela.Text = '' then
@@ -115,7 +120,15 @@ begin
         Abort;
     end;
 
-    Code := DM.GerarRecordDaTabela(EditTabela.Text);
+    NomeClasse := EditTabela.Text;
+    NomeClasse := UpperCase(NomeClasse[1]) + LowerCase(Copy(NomeClasse, 2, Length(NomeClasse)));
+    NomeClasse := 'T'+NomeClasse;
+
+    if RadioButton_classe.Checked then
+      Code := DM.GerarClasseDaTabela(EditTabela.Text, NomeClasse)
+    else
+       Code := DM.GerarRecordDaTabela(EditTabela.Text);
+
     try
         Memo.Lines.Text := Code.Text;
         PageControl.TabIndex := 1;

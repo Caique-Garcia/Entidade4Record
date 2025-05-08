@@ -98,6 +98,7 @@ begin
     for i := 0 to Qry.FieldCount - 1 do
     begin
       CampoNome := Qry.Fields[i].FieldName;
+      CampoNome := UpperCase(CampoNome[1]) + LowerCase(Copy(CampoNome, 2, Length(CampoNome)));
 
       if Qry.Fields[i] is TIntegerField then
         CampoTipo := 'Integer'
@@ -119,6 +120,7 @@ begin
     for i := 0 to Qry.FieldCount - 1 do
     begin
       CampoNome := Qry.Fields[i].FieldName;
+      CampoNome := UpperCase(CampoNome[1]) + LowerCase(Copy(CampoNome, 2, Length(CampoNome)));
 
       if Qry.Fields[i] is TIntegerField then
         CampoTipo := 'Integer'

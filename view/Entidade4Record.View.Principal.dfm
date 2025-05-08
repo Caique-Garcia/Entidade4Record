@@ -23,7 +23,7 @@ object FormPrincipal: TFormPrincipal
     Top = 24
     Width = 627
     Height = 512
-    ActivePage = Conexao
+    ActivePage = Resultado
     TabOrder = 0
     object Conexao: TTabSheet
       Caption = 'Conex'#227'o'
@@ -334,6 +334,7 @@ object FormPrincipal: TFormPrincipal
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
+          Visible = False
           OnClick = BtnConectarClick
         end
         object Button2: TButton
